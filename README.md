@@ -4,7 +4,7 @@ setgit python script
 Overview
 --------
 
-I found myself juggling a couple of gitconfigs (my personal one linked to my github account and one for my employer's internal git server) and wanted an easy solution to switching between configs. Thus I wrote this really simple python script
+I found myself juggling a couple of gitconfigs (my personal one linked to my github account and one for my employer's Enterprise git server) and wanted an easy solution to switching between configs. So, here we are. This may not be the most elegant solution but it works for me.
 
 Installation
 ------------
@@ -19,19 +19,9 @@ Then create your different .gitconfigs appending the name with -sourcename. For 
 Running
 ------------
 From the command line run:
-$ setgit -l sourcename
+$ setgit sourcename
 
-The contents of .gitconfig-sourcename will overwrite the .gitconfig contents. 
+The contents of .gitconfig-sourcename will overwrite the .gitconfig contents.
 
 When you want to switchback to your original config run:
-$ setgit -l me
-
-
-
-
-
-
-
-
-
-
+$ setgit me
