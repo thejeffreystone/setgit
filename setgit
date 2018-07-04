@@ -17,17 +17,28 @@ import sys, os, shutil, argparse
 
 # Main Program
 def main():
+	# Define working_git_config and working_ssh_config
+	working_git_config=(os.environ['HOME'] + '/.gitconfig')
+	working_ssh_config=(os.environ['HOME'] + '/.ssh/config')
+
 	# Create Parser that will read command line input
 	parser = argparse.ArgumentParser(description="create .gitconfig from a source file .gitconfig-source")
 	parser.add_argument('source',
                     help='the source identifier')
 	args = parser.parse_args()
 
+	# If new_git_config and new_ssh_config exist, copy them to working_git_config and working_ssh_config
 	if args.source:
-		if os.path.isfile(os.environ['HOME'] + '/.gitconfig-' + args.source ):
-			shutil.copyfile(os.environ['HOME'] + '/.gitconfig-' + args.source, os.environ['HOME'] + '/.gitconfig' )
+		new_git_config=(os.environ['HOME'] + '/.gitconfig-' + args.source)
+		if os.path.isfile(new_git_config):
+			shutil.copyfile(new_git_config, working_git_config)
 		else:
-			print "I could not find a source file " + os.environ['HOME'] + "/.gitconfig-" + args.source
+			print "I could not find a source file " + new_git_config
+		new_ssh_config=(os.environ['HOME'] + '/.ssh/config-' + args.source)
+		if os.path.isfile(new_ssh_config):
+			shutil.copyfile(new_ssh_config, working_ssh_config)
+		else:
+			print "I could not find a source file " + new_ssh_config
 
 # Ok, so we're doing this...
 if __name__ == '__main__':

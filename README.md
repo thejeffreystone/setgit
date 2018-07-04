@@ -10,9 +10,11 @@ Installation
 
 Clone this repo or download the setgit bash script to a folder in your path.
 
-Copy your current gitconfig to gitconfig-me.  
+Copy your current ~/.gitconfig to ~/.gitconfig-me
+Copy your current ~/.ssh/config to ~/.ssh/config-me
 
-Then create your different .gitconfigs appending the name with -sourcename. For example .gitconfig-work
+Then create your different git and ssh config files appending the name with -sourcename.
+For example ~/.gitconfig-work and ~/.ssh/config-work
 
 
 Running
@@ -20,7 +22,8 @@ Running
 From the command line run:
 $ setgit sourcename
 
-The contents of .gitconfig-sourcename will overwrite the .gitconfig contents.
+The contents of ~/.gitconfig-sourcename will overwrite the ~/.gitconfig contents.
+The contents of ~/.ssh/config-sourcename will overwrite the ~/.ssh/config contents.
 
 When you want to switchback to your original config run:
 $ setgit me
